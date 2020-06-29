@@ -11,7 +11,7 @@ function gerar(){
             },
             {
                 "nome":"Rodrigo Campos",
-                "skills":["Scrum","Project","Office","Gestão de Equipe"]
+                "skills":["Scrum", "Project", "Office", "Gestão de Equipe"]
             },
             {
                 "nome":"Tarcisio Moura",
@@ -28,17 +28,27 @@ function gerar(){
             }
         ]
     }
-    
-    res.innerHTML += `
-    <table border="1" class="border-1 mt-3" >
-        <tr>
-            <td class="pr-2 pl-2">
-                <p class="font-weight-bold">NOME</p>
-            </td>
-            <td class="pr-2 pl-2" >
-                <p class="font-weight-bold">SKILLS</p>
-            </td>
-        </tr>
-    </table>`
-    
+
+    table1.innerHTML += 
+    `<tr>
+        <th class="h3">
+            <p class="font-weight-bold">NOME</p>
+        </th>
+        <th class="h3">
+            <p class="font-weight-bold">SKILLS</p>
+        </th>
+    </tr>
+    `
+
+    for (let i = 0; i < tabela.funcionarios.length; i++) {
+        table2.innerHTML += `
+            <tr>
+                <th class="pr-2 pl-2 lead">
+                    ${tabela.funcionarios[i].nome}
+                </th>
+                <th class="pr-2 pl-2 lead">
+                    ${tabela.funcionarios[i].skills}&nbsp&nbsp
+                </th>
+            </tr> `
+    }
 }
