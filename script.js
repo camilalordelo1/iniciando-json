@@ -1,4 +1,9 @@
 function gerar(){
+    // PARA NÃO GERAR VARIAS TABELAS
+    table1.innerHTML = ' '
+    table2.innerHTML = ' '
+    
+    // JSON FUNCIONÁRIOS
     var tabela = {
         "funcionarios":[
             {
@@ -11,7 +16,7 @@ function gerar(){
             },
             {
                 "nome":"Rodrigo Campos",
-                "skills":["Scrum", "Project", "Office", "Gestão de Equipe"]
+                "skills":["Scrum", "Project", "Office","Gestão de Equipe"]
             },
             {
                 "nome":"Tarcisio Moura",
@@ -28,27 +33,36 @@ function gerar(){
             }
         ]
     }
-
+    
+    // RESPOSTA DOS TITULOS
     table1.innerHTML += 
     `<tr>
-        <th class="h3">
+        <th class="align-middle h5">
             <p class="font-weight-bold">NOME</p>
         </th>
-        <th class="h3">
+        <th class="align-middle h5">
             <p class="font-weight-bold">SKILLS</p>
         </th>
     </tr>
     `
-
-    for (let i = 0; i < tabela.funcionarios.length; i++) {
+    
+    // RESPOSTA DAS INFORMAÇÕES
+    var nSkills 
+    for (var i = 0; i < tabela.funcionarios.length; i++) {
+        nSkills = tabela.funcionarios[i].skills.length
         table2.innerHTML += `
-            <tr>
-                <th class="pr-2 pl-2 lead">
-                    ${tabela.funcionarios[i].nome}
-                </th>
-                <th class="pr-2 pl-2 lead">
-                    ${tabela.funcionarios[i].skills}&nbsp&nbsp
-                </th>
-            </tr> `
+        <tr>
+            <td class="align-middle bg-secondary text-white" rowspan="${nSkills+1}">
+                <h4 class="text-center"> ${tabela.funcionarios[i].nome} </h4>
+            </td> 
+                `
+                for (var i2 = 0; i2 < nSkills; i2++){
+                    table2.innerHTML += `
+                    <td class=" bg-light">
+                        ${tabela.funcionarios[i].skills[i2]}
+                    </td>
+                    `
+                }
+        table2.innerHTML += `</tr>`
     }
 }
