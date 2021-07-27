@@ -1,2 +1,11 @@
-# Começando a utilizar JSON
-Criar tabela automática com JSON usando bootstrap
+# Iniciando JSON
+
+  📌 Objetivo
+Gerar tabela automática com JSON usando bootstrap
+
+ 📚 Ferramentas
+ - HTML
+ - CSS
+ - JavaScript
+ - JSON
+ - Bootstrap
